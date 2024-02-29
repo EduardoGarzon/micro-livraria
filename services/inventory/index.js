@@ -19,6 +19,12 @@ server.addService(inventoryProto.InventoryService.service, {
         callback(null, {
             products: products,
         });
+    }, // Implementando a funcao que pesquisa produtos pelo ID.
+    SearchProductByID: (payload, callback) => {
+        callback(
+            null,
+            products.find((product) => product.id == payload.request.id)
+        );
     },
 });
 
